@@ -1,0 +1,4 @@
+hadoop_tar_path: "/data/download_tar"
+hadoop_tar_filename: "hadoop-3.3.5.tar.gz"
+work_dir: "/data/sy0218"
+play_book_dir: "/data/work/hadoop_3.3.5_auto_ansible"

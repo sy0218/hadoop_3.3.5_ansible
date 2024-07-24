@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+    <!-- configuration hadoop -->
+    <property>
+        # 파일 복제 수를 지정
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <property>
+        # NameNode의 메타데이터를 저장할 디렉토리 경로
+        <name>dfs.namenode.name.dir</name>
+<value>file:///hadoop/hdfs/nn</value>
+    </property>
+    <property>
+        # DataNode의 데이터 블록을 저장할 디렉토리 경로
+        <name>dfs.datanode.data.dir</name>
+<value>file:///hadoop/data1,file:///hadoop/data2</value>
+    </property>
+    <property>
+        # JournalNode의 트랜잭션 로그 파일을 저장할 디렉토리 경로
+        <name>dfs.journalnode.edits.dir</name>
+<value>/hadoop/jn</value>
+    </property>
+    <property>
+        # HDFS 네임서비스의 이름
+        <name>dfs.nameservices</name>
+        <value>my-hadoop-cluster</value>
+    </property>
+    <property>
+        # 네임노드의 하이언 노드 이름 목록을 지정
+        <name>dfs.ha.namenodes.my-hadoop-cluster</name>
+        <value>namenode1,namenode2</value>
+    </property>
+    <property>
+        # 네임노드의 RPC 주소를 지정
+        <name>dfs.namenode.rpc-address.my-hadoop-cluster.namenode1</name>
+<value>192.168.56.10:8020</value>
+    </property>
+    <property>
+        # 네임노드의 RPC 주소를 지정
+        <name>dfs.namenode.rpc-address.my-hadoop-cluster.namenode2</name>
+<value>192.168.56.11:8020</value>
+    </property>
+    <property>
+        # 네임노드의 HTTP 주소를 지정
+        <name>dfs.namenode.http-address.my-hadoop-cluster.namenode1</name>
+<value>192.168.56.10:50070</value>
+    </property>
+    <property>
+        # 네임노드의 HTTP 주소를 지정
+        <name>dfs.namenode.http-address.my-hadoop-cluster.namenode2</name>
+<value>192.168.56.11:50070</value>
+    </property>
+    <property>
+        # 네임노드 간의 공유 트랜잭션 로그 디렉토리를 지정
+        <name>dfs.namenode.shared.edits.dir</name>
+<value>qjournal://192.168.56.10:8485;192.168.56.11:8485;192.168.56.12:8485/my-hadoop-cluster</value>
+    </property>
+    <property>
+        # 클라이언트 장애 조치(Failover) 프록시 제공자를 지정
+        <name>dfs.client.failover.proxy.provider.my-hadoop-cluster</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+    <property>
+        # 네임노드 장애 조치 시 사용되는 팬싱(fencing) 메서드를 지정
+        <name>dfs.ha.fencing.methods</name>
+        <value>shell(/bin/true)</value>
+    </property>
+    <property>
+        # SSH 팬싱을 위한 개인 키 파일의 경로를 지정
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/root/.ssh/id_rsa</value>
+    </property>
+    <property>
+        # 자동 장애 조치(Failover)를 활성화
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        # HDFS 네임노드의 데이터 디렉토리 경로
+        <name>dfs.name.dir</name>
+<value>/hadoop/data/name</value>
+    </property>
+    <property>
+        # HDFS 데이터 노드의 데이터 디렉토리 경로
+        <name>dfs.data.dir</name>
+<value>/hadoop/data/data</value>
+    </property>
+</configuration>

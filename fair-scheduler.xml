@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<allocations>
+  <user name="root">
+    <maxRunningApps>50</maxRunningApps> # 사용자가 실행할 수 있는 최대 애플리케이션 수를 지정
+  </user>
+</allocations>
