@@ -1,4 +1,6 @@
-ystem_file="/data/work/system_download.txt"
+#!/usr/bin/bash
+
+system_file="/data/work/system_download.txt"
 
 ip_array=($(cat ${system_file} | grep hadoop_ip | awk -F '|' '{for(i=2; i<=NF; i++) print $i}'))
 len_array=${#ip_array[@]}
