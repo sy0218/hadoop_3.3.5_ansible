@@ -3,7 +3,7 @@
   hosts: servers
   become: yes
   vars_files:
-    - /data/work/hadoop_3.3.5_auto_ansible/main.yml
+    - /data/work/hadoop_3.3.5_ansible/main.yml
   tasks:
     - name: Create hadoop_tar directory
       file:
@@ -20,7 +20,7 @@
   hosts: localhost
   become: yes
   vars_files:
-    - /data/work/hadoop_3.3.5_auto_ansible/main.yml
+    - /data/work/hadoop_3.3.5_ansible/main.yml
   tasks:
     - name: tar_scp.sh Start
       shell: "{{ play_book_dir }}/tar_scp.sh {{ play_book_dir }} {{ hadoop_tar_path }}"
@@ -29,7 +29,7 @@
   hosts: servers
   become: yes
   vars_files:
-    - /data/work/hadoop_3.3.5_auto_ansible/main.yml
+    - /data/work/hadoop_3.3.5_ansible/main.yml
   tasks:
     - name: Extract the hadoop tarball
       unarchive:
@@ -42,7 +42,7 @@
   hosts: localhost
   become: yes
   vars_files:
-    - /data/work/hadoop_3.3.5_auto_ansible/main.yml
+    - /data/work/hadoop_3.3.5_ansible/main.yml
   tasks:
     - name: entry_point_sh start
       shell: "{{ play_book_dir }}/entrypoint.sh {{ play_book_dir }} {{ work_dir }}"
